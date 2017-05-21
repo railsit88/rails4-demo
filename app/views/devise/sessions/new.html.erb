@@ -1,0 +1,27 @@
+<div id="login" class="animate form">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <h1>Log in</h1>
+    <%= devise_error_messages! %> 
+    <p> 
+      <label for="username" class="uname" data-icon="u" > Your email or username </label>
+      <%= f.email_field :email, id: "username", placeholder: "myusername or mymail@mail.com", autofocus: true %>
+    </p>
+    <p> 
+      <label for="password" class="youpasswd" data-icon="p"> Your password </label>
+      <%= f.password_field :password, id: "password", placeholder: "eg. X8df!90EO", autocomplete: "off" %> 
+    </p>
+    <% if devise_mapping.rememberable? -%>
+      <p class="keeplogin"> 
+        <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+        <label for="loginkeeping">Keep me logged in</label>
+      </p>
+    <% end -%>  
+    <p class="login button"> 
+      <%= f.submit "Login" %> 
+    </p>
+    <p class="change_link">
+      Not a member yet ?
+      <a href="<%= new_user_registration_path %>" class="to_register">Join us</a>
+    </p>
+  <% end %>
+</div>
